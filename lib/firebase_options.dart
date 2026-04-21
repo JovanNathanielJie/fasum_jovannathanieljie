@@ -46,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '889405317193',
     projectId: 'fasum-jovannathanieljie',
     authDomain: 'fasum-jovannathanieljie.firebaseapp.com',
+    databaseURL: 'https://fasum-jovannathanieljie-default-rtdb.firebaseio.com',
     storageBucket: 'fasum-jovannathanieljie.firebasestorage.app',
     measurementId: 'G-QCVL8FELLL',
   );
@@ -55,6 +56,7 @@ class DefaultFirebaseOptions {
     appId: '1:889405317193:android:ced41a5c5864a963025f98',
     messagingSenderId: '889405317193',
     projectId: 'fasum-jovannathanieljie',
+    databaseURL: 'https://fasum-jovannathanieljie-default-rtdb.firebaseio.com',
     storageBucket: 'fasum-jovannathanieljie.firebasestorage.app',
   );
 
@@ -63,6 +65,7 @@ class DefaultFirebaseOptions {
     appId: '1:889405317193:ios:27d2378277a1a230025f98',
     messagingSenderId: '889405317193',
     projectId: 'fasum-jovannathanieljie',
+    databaseURL: 'https://fasum-jovannathanieljie-default-rtdb.firebaseio.com',
     storageBucket: 'fasum-jovannathanieljie.firebasestorage.app',
     iosBundleId: 'com.example.fasumJovannathanieljie',
   );
@@ -72,6 +75,7 @@ class DefaultFirebaseOptions {
     appId: '1:889405317193:ios:27d2378277a1a230025f98',
     messagingSenderId: '889405317193',
     projectId: 'fasum-jovannathanieljie',
+    databaseURL: 'https://fasum-jovannathanieljie-default-rtdb.firebaseio.com',
     storageBucket: 'fasum-jovannathanieljie.firebasestorage.app',
     iosBundleId: 'com.example.fasumJovannathanieljie',
   );
@@ -82,7 +86,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '889405317193',
     projectId: 'fasum-jovannathanieljie',
     authDomain: 'fasum-jovannathanieljie.firebaseapp.com',
+    databaseURL: 'https://fasum-jovannathanieljie-default-rtdb.firebaseio.com',
     storageBucket: 'fasum-jovannathanieljie.firebasestorage.app',
     measurementId: 'G-EF06ERNK4T',
   );
+
 }
