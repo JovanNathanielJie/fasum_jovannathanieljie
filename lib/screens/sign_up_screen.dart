@@ -64,8 +64,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return RegExp(emailRegex).hasMatch(email);
   }
 
-  String _getAuthErrorMessage(String errorCode) {
-    switch (errorCode) {
+  String _getAuthErrorMessage(String code) {
+    switch (code) {
       case 'email-already-in-use':
         return 'The email is already in use. Please try another one.';
       case 'invalid-email':
