@@ -133,7 +133,7 @@ class SignInScreenState extends State<SignInScreen> {
                         color: Colors.black,
                       ),
                       children: [
-                        const TextSpan(text: "Don't have an account?"),
+                        const TextSpan(text: "Don't have an account? "),
                         TextSpan(
                           text: "Sign Up",
                           style: const TextStyle(
