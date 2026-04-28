@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fasum_jovannathanieljie/screens/detail_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fasum_jovannathanieljie/screens/sign_in_screen.dart';
+import 'package:fasum_jovannathanieljie/screens/add_post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -216,17 +217,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 formatTime(createdAt),
                                 style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
+                                  fontSize: 12,
+                                  color: Colors.grey,
                                 ),
                               ),
                               const SizedBox(height: 12),
                               Text(
                                 description ?? '',
                                 style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
+                                  fontSize: 16,
                                 ),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ],
                           )
@@ -238,6 +240,14 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           },
       )
+    ),
+    floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const AddPostScreen()),
+        );
+      },
+      child: const Icon(Icons.add),
     ),
   );
   }
