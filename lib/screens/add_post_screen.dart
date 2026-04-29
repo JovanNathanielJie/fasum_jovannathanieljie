@@ -121,7 +121,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
     if (_image == null) return;
     setState(() => _isGenerating = true);
     try {
-      final model = GenerativeModel(model: 'gemini-1.5-pro', apiKey: AIzaSyC_jkUoq48gu-Yvp-WbO9tdcpNizaCMK-E);
+      final model = GenerativeModel(model: 'gemini-1.5-pro', apiKey: 'AIzaSyC_jkUoq48gu-Yvp-WbO9tdcpNizaCMK-E');
       final imageBytes = await _image!.readAsBytes();
       final content = Content.multi([
         DataPart('image/jpeg', imageBytes),
@@ -135,12 +135,41 @@ class _AddPostScreenState extends State<AddPostScreen> {
           ' Buat deskripsi singkat untuk laporan perbaikan, dan tambahkan permohonan perbaikan. '
           ' Fokus pada kerusakan yang terlihat dan hindari spekulasi.\n\n'
           ' Format output yang diinginkan:\n '
-          ' [Kategori (satu kategori yang dipilih)]\n'
-          ' Deskripsi: [deskripsi singkat]'
+          ' Kategori: [satu kategori yang dipilih]\n'
+          ' Deskripsi: [deskripsi singkat]',
         ),
       ]);
+      final response = await model.generateContent([content]);
+      final aiText = response.text;
+      print('AI TEXT: $aiText');
+      if (aiText != null && aiText.isNotEmpty) {
+        final lines = aiText.trim().split('\n');
+        String? category;
+        String? description;
+        for (var line in lines) {
+          final lower = line.toLowerCase();
+          if (lower.startsWith('kategori:')) {
+            category = line.substring(9).trim();
+          } else if (lower.startsWith('deskripsi:')) {
+            description = line.substring(10).trim();
+          } else if (lower.startsWith('keterangan:')) {
+            description = line.substring(11).trim();
+          }
+        }
+        description ??= aiText.trim();
+        setState(() {
+          _aiCategory = category ?? 'Tidak Diketahui';
+          _aiDescription = description!;
+          _descriptionController.text = _aiDescription!;
+        });
+      }
+      } catch (e) {
+        debugPrint('Failed to generate AI description: $e');
+      } finally {
+        if (mounted) setState(() => _isGenerating = false);
+      }
     }
-  }
+  
 
   Future<void> _getLocation() async {
 
