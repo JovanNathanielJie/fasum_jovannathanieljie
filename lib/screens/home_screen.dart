@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } else if (diff.inHours < 48) {
       return '1 Days Ago';
     } else {
-      return DateFormat('dd/MMM/yyyy').format(dateTime);
+      return DateFormat('dd/MM/yyyy').format(dateTime);
     } 
   }
 
