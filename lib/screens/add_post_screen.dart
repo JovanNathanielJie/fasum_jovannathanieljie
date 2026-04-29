@@ -126,10 +126,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
       final content = Content.multi([
         DataPart('image/jpeg', imageBytes),
         TextPart(
-          'Berdasarkan foto ini, identifikasi satu kategori utana kerusakan fasilitas umum '
-          ' dari daftar berikut: Jalan Rusak, Harka Pudan, Lampu Mati, Trotoar Rusak, '
-          ' Ranbu Rusak, Jembatan Rusak, Sampah Menumpuk, Saluran Tersumbat, Sungai Tercemar, '
-          ' Sampah Sungai, Pohon Tumbang, Tanan Rusak, Fasilitas Rusak, Pipa Bocor, '
+          'Berdasarkan foto ini, identifikasi satu kategori utama kerusakan fasilitas umum '
+          ' dari daftar berikut: Jalan Rusak, Marka Pudar, Lampu Mati, Trotoar Rusak, '
+          ' Rambu Rusak, Jembatan Rusak, Sampah Menumpuk, Saluran Tersumbat, Sungai Tercemar, '
+          ' Sampah Sungai, Pohon Tumbang, Taman Rusak, Fasilitas Rusak, Pipa Bocor, '
           ' Vandalisme, Banjir, dan Lainnya. '
           ' Pilih kategori yang paling dominan atau paling mendesak untuk dilaporkan. '
           ' Buat deskripsi singkat untuk laporan perbaikan, dan tambahkan permohonan perbaikan. '
@@ -170,7 +170,6 @@ class _AddPostScreenState extends State<AddPostScreen> {
       }
     }
   
-
   Future<void> _getLocation() async {
 
   }
