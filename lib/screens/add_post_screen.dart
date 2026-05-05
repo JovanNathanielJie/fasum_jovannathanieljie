@@ -7,6 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:shimmer/shimmer.dart';
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({super.key});
@@ -300,6 +301,32 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text('Add Post')),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            GestureDetector(
+              onTap: _showImageSourceDialog,
+              child: Container(),
+            ),
+            const SizedBox(height: 16),
+            // Efek shimmer saat generating
+            if (_isGenerating)
+              Shimmer.fromColors(),
+            // Kategori dan tombol refresh
+            if (_aiCategory != null && !_isGenerating)
+              Padding(),
+              // TextField untuk deskripsi
+            Offstage(),
+            const SizedBox(height: 24),
+            // Tombol kirim post
+            ElevatedButton(),
+          ],
+        ),
+      ),
+    );
   }
 }
