@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fasum_jovannathanieljie/screens/sign_up_screen.dart';
 import 'package:fasum_jovannathanieljie/screens/sign_in_screen.dart';
 import 'package:fasum_jovannathanieljie/screens/home_screen.dart';
+import 'package:fasum_jovannathanieljie/screens/add_post_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const AddPostScreen(),
     );
   }
 }
