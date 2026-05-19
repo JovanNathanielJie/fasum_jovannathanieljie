@@ -122,14 +122,30 @@ class _DetailScreenState extends State<DetailScreen> {
                             const SizedBox(height: 8),
                             Row(
                               children: [
-
+                                const Icon(
+                                  Icons.access_time,
+                                  size: 20,
+                                  color: Colors.grey,
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  createdAtFormatted,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey,
+                                  ),
+                                ),
                               ],
                             )
                           ],
                         ),
                       ),
                       // Kanan: Icon Map
-                      IconButton(),
+                      IconButton(
+                        onPressed: openMap,
+                        icon: const Icon(Icons.map, size: 38,color: Colors.lightGreen),
+                        tooltip: 'Lihat lokasi di Google Maps',
+                      ),
                     ],
                   ),
                   const SizedBox(height: 20),
