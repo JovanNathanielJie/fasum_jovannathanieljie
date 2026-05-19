@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:fasum_jovannathanieljie/screens/full_image_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   final String imageBase64;
@@ -28,6 +32,18 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   
+  Future<void> openMap() async {
+    final uri = Uri.parse(
+      'https://www.google.com/maps/search/?api=1&query=${widget.latitude},${widget.longitude}');
+    final success = await launchUrl(uri, mode: LaunchMode.externalApplication);
+    if (!mounted) return;
+    if (!success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Tidak bisa membuka Google Maps.')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
