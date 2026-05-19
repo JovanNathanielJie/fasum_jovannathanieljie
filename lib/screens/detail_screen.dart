@@ -46,6 +46,103 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final createdAtFormatted = DateFormat('dd/MM/yyyy HH:mm').format(widget.createdAt);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detail Laporan'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Hero(
+                  tag: widget.heroTag,
+                  child: Image.memory(
+                    base64Decode(widget.imageBase64),
+                    width: double.infinity,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  top: 12,
+                  right: 12,
+                  child: IconButton(
+                    icon: const Icon(Icons.fullscreen, color: Colors.white),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => FullscreenImageScreen(
+                            imageBase64: widget.imageBase64,
+                          ),
+                        ),
+                      );
+                    },
+                    tooltip: 'Lihat gambar penuh',
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.black45,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Kiri: Kategori dan waktu
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.category,
+                                  size: 20,
+                                  color: Colors.red,
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  widget.category,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              children: [
+
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      // Kanan: Icon Map
+                      IconButton(),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    widget.description,
+                    style: const TextStyle(fontSize: 16),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
